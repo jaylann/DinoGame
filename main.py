@@ -20,7 +20,7 @@ class Cactus:
         self.offset = 0
         self.SCALE_FACTOR = 5  # factor to scale images by. Scales by 1/n
 
-        image_path = f"_internal\\images\\cactus_{'large' if large else 'small'}_{random.randint(1, 2)}.png"
+        image_path = f"_internal/images/cactus_{'large' if large else 'small'}_{random.randint(1, 2)}.png"
         image = pygame.image.load(image_path)
 
         self.width = int(image.get_width() / self.SCALE_FACTOR)
@@ -74,7 +74,7 @@ class World:
         pygame.init()
         display = pygame.display.set_mode((self.width, self.height))
         dust = self.generate_dust()
-        font = pygame.font.Font("_internal\\fonts\\PressStart2P-Regular.ttf", 15)
+        font = pygame.font.Font("_internal/fonts/PressStart2P-Regular.ttf", 15)
         return display, dust, font
 
     def run(self):
@@ -86,7 +86,6 @@ class World:
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
-                        print("herro")
                         self.dino.jump()
             self.dino.move()
             self.tick_count += 1
@@ -209,7 +208,7 @@ class Dino:
         self.jump_count = 0
         self.tick_count = 0
         self.jump_velocity = 0
-        self.char = pygame.transform.scale(pygame.image.load('_internal\\images\\dino.png'), (40, 44))
+        self.char = pygame.transform.scale(pygame.image.load('_internal/images/dino.png'), (40, 44))
 
     def jump(self):
         self.is_jumping = True
