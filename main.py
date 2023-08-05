@@ -1,8 +1,6 @@
 import math
-import os
 import random
 import sys
-import time
 import pygame
 from random import getrandbits
 
@@ -120,9 +118,7 @@ class World:
             offset += cactus.offset
 
     def draw_dust(self) -> None:
-        """Draws dust particles on ground
-        :param x_offset: distance in pixel to move dust compared to previous image 
-        """
+        """Draws dust particles on ground"""
 
         self.dust = self.move_rects(self.dust, int(self.display_speed))
         for rect in self.dust:
@@ -130,7 +126,6 @@ class World:
 
     def draw_floor(self) -> None:
         """Draws the floor of the game"""
-        # TODO: Implement irregularities
         pygame.draw.rect(self.display, self.asset_color, pygame.Rect(0, 125, 600, 2))
 
     def generate_dust(self) -> list[pygame.rect]:
@@ -145,7 +140,7 @@ class World:
             hor_distance += random.randrange(10, 40, 4)
             vert_distance = random.randrange(2, 12, 2)
 
-            # we use 128 here as a constant value for y so its always below 128 pixels
+            # we use 128 here as a constant value for y, so It's always below 128 pixels
             rects.append(pygame.Rect(hor_distance, 128 + vert_distance, width, 2))
         return rects
 
@@ -162,7 +157,8 @@ class World:
 
         self.display.blit(score_text, (525 - x_offset, 0))
 
-    def move_rects(self, rects, x) -> list[pygame.rect]:
+    @staticmethod
+    def move_rects(rects, x) -> list[pygame.rect]:
         """move given rectangles by x in x direction
 
         :param rects: list of rectangles to move
@@ -233,12 +229,13 @@ class Dino:
         dino_box = self.char.get_rect()
         dino_box.topleft = (self.x, self.y)
         for cactus in cacti:
-            if self.x-cactus.width < cactus.x < self.x+100:
+            if self.x - cactus.width < cactus.x < self.x + 100:
                 cactus_rect = cactus.image.get_rect()
                 cactus_rect.topleft = (cactus.x, cactus.y)
                 if dino_box.colliderect(cactus_rect):
                     return True
         return False
+
 
 if __name__ == "__main__":
     w = World()
