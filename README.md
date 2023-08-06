@@ -15,7 +15,7 @@ A simple and engaging recreation of the classic Google Chrome dinosaur game. Jum
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/your-username/dino-run.git
+   git clone https://github.com/jaylann/DinoGame.git
    cd dino-run
    ```
 
