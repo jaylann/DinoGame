@@ -74,3 +74,10 @@ self.speed = 6 # Change the value to set a different speed
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+---
+
+<p align="center">
+  Made with ❤️ by <a href="https://lanfermann.dev">Justin Lanfermann</a>
+</p>
+
